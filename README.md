@@ -1,12 +1,14 @@
 # Pobreza_equipo03
 El objetivo de esta repositorio es entender la forma en que se deben realizar las consultas espaciales y no espaciales haciendo uso del lenguaje SQL (Structured Query Language) para los datos de pobreza entrema en las entidades federativas de la república mexicana .  
 Vamos a explorar datos relacionados con porcentaje de población mayor al 30% con pobreza extrema municipal municipal .Con el objetivo de focalizar zonas prioritarias para la atención relacionándola con variables de importancia como son el rezago educativo, acceso a la seguridad social y carencia por acceso a la alimentación.
-Para comenzar se creó una una base de datos que se llame proyectofinal y no se creó un schema ya que se utilizará el schema public:
+Para comenzar se creó una una base de datos que se llame proyectofinal y y un schema, permiten organizar los objetos de la base de datos, por ejemplo, las tablas en grupos lógicos para hacerlos más manejables:
 ```SQL
 -- CREAR LA BASE DE DATOS
 create database proyectofinal;
 -- HABILITAR LA EXTENSIÓN POSTGIS
 create extension postgis;
+--Create schema
+create schema proyectofinal;
 ```
 ## Preparando los datos 
 Cuando se trabaja con datos tanto espaciales como no espaciales es necesario que los datos cumplan con tres condiciones importantes: contar como llaves primarias y secundarias, tener índices espaciales y definir la proyección espacial idonea para trabajar con ellos.
@@ -16,7 +18,7 @@ Los datos de población y los polígonos de las manzanas se encuentran separados
 ## Consultas con los datos para el análisis de Pobreza extrema
 Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema 
 
-Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?
+Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?.
 **importante seleccionar las columnas que quiero obtener en *select* y
  en *from* la tabla donde obtendré los datos puede ser del 2015 o del 2020).**
 
