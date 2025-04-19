@@ -221,6 +221,7 @@ Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza e
 
 ```SQL
 Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza en 2015?
+```SQL
 select nomgeo, pobrezaext, entidad_fe
 from public.pobreza_extrema_alta_2015 pa
 order by pobrezaext desc
@@ -235,7 +236,7 @@ group by entidad_fe
 order by veces_apar desc;
 ```
 
-Para Realizar la consulta ¿Qué municipios son los más pobres de cada estado y agregar otras variables de interés?
+Para Realizar la consulta ¿De esos estados cual es el municipio con mayor  pobreza extrema ?
 
 ```SQL
 with municipiopobrezaext as (
@@ -255,18 +256,20 @@ where rn = 1
 order by pobrezaext desc;
 ```
 
-Podemos realizar otras consultas como ¿De cada estado quiero obtener los 10 municipios más pobres?
+Podemos realizar otras consultas de una entidad federativa epecífic, ¿Cuales son los municipios con mayor pobreza extrema en Guerrero?
 ```SQL
 select entidad_fe, municipio, pobrezaext, rezagoedu_
 from public.pobreza_extrema_alta_2015 pa
 where pa.entidad_fe = 'Guerrero'
 group by pa.municipio, pa.entidad_fe, pobrezaext, rezagoedu_
 order by pobrezaext desc
-select entidad_fe, nomgeo, SUM(pobrezaext) as
-total_pobrezaext
-from public.pobreza_extrema_alta_2015 pa
-group by entidad_fe, nomgeo
-order by total_pobrezaext desc;
 ```
 
-
+o escribiendo el número del estado en where para obtener datos de Yucatán.
+```SQL
+select entidad_fe,  municipio,  rezagoedu_ ,acsalimen_ ,pobrezaext 
+from public.pobreza_extrema_alta_2020
+where entidad_fe = '31'
+group by entidad_fe, municipio,  rezagoedu_,acsalimen_ ,pobrezaext 
+order by acsalimen_ desc;
+```SQL
