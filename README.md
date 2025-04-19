@@ -7,6 +7,7 @@ Para comenzar se creó una una base de datos que se llame proyectofinal y no se 
 create database proyectofinal;
 -- HABILITAR LA EXTENSIÓN POSTGIS
 create extension postgis;
+```SQL
 
 --Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema --
 
