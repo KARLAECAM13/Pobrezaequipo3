@@ -8,10 +8,11 @@ create database proyectofinal;
 -- HABILITAR LA EXTENSIÓN POSTGIS
 create extension postgis;
 ```
+## Preparando los datos 
 
---Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema --
+Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema --
 
---Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?--
+Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?
 (importante seleccionar las columnas que quiero obtener y en from la tabla donde obtendré los datos puede ser del 2015 o del 2020).
 
 ## Consultas con los datos para el análisis de 2015 (Pobreza extrema)--
@@ -23,4 +24,47 @@ select nomgeo, pobrezaext, entidad_fe
 from public.pobreza_extrema_alta_2015 pa
 order by pobrezaext desc
 limit 10;
-````
+```
+Para realizar la consulta ¿Cuáles son los estados con más municipios en pobreza extrema en 2015?--
+```SQL
+select entidad_fe, count(*) as
+veces_apar
+from public.pobreza_extrema_alta_2015 pa
+group by entidad_fe
+order by veces_apar desc;
+```
+
+Para Realizar la consulta ¿Qué municipios son los más pobres de cada estado y agregar otras variables de interés?--
+with municipiopobrezaext as (
+```SQL
+select entidad_fe,
+		nomgeo,
+		pobrezaext,
+		rezagoedu_,
+		row_number() over (partition by entidad_fe
+		order by pobrezaext desc) as rn
+from public.pobreza_extrema_alta_2015)
+select entidad_fe,
+		nomgeo,
+		pobrezaext,
+		rezagoedu_
+from municipiopobrezaext
+where rn = 1
+order by pobrezaext desc;
+```
+
+Podemos realizar otras consultas como ¿De cada estado dame los 10 municipios más pobres?
+```SQL
+select entidad_fe, municipio, pobrezaext, rezagoedu_
+from public.pobreza_extrema_alta_2015 pa
+where pa.entidad_fe = 'Guerrero'
+group by pa.municipio, pa.entidad_fe, pobrezaext, rezagoedu_
+order by pobrezaext desc
+select entidad_fe, nomgeo, SUM(pobrezaext) as
+total_pobrezaext
+from public.pobreza_extrema_alta_2015 pa
+group by entidad_fe, nomgeo
+order by total_pobrezaext desc;
+```
+
+
