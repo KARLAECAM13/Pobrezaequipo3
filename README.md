@@ -219,7 +219,6 @@ Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza e
 **importante seleccionar las columnas que quiero obtener en *select* y
  en *from* la tabla donde obtendré los datos puede ser del 2015 o del 2020).**
 
-```SQL
 Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza en 2015?
 ```SQL
 select nomgeo, pobrezaext, entidad_fe
@@ -272,4 +271,4 @@ from public.pobreza_extrema_alta_2020
 where entidad_fe = '31'
 group by entidad_fe, municipio,  rezagoedu_,acsalimen_ ,pobrezaext 
 order by acsalimen_ desc;
-```SQL
+```
