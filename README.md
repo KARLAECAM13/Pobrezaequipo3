@@ -23,13 +23,13 @@ Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza e
  en *from* la tabla donde obtendré los datos puede ser del 2015 o del 2020).**
 
 ```SQL
---Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza en 2015?--
+Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza en 2015?
 select nomgeo, pobrezaext, entidad_fe
 from public.pobreza_extrema_alta_2015 pa
 order by pobrezaext desc
 limit 10;
 ```
-Para realizar la consulta ¿Cuáles son los estados con más municipios en pobreza extrema en 2015?--
+Para realizar la consulta ¿Cuáles son los estados con más municipios en pobreza extrema en 2015?
 ```SQL
 select entidad_fe, count(*) as
 veces_apar
@@ -38,7 +38,7 @@ group by entidad_fe
 order by veces_apar desc;
 ```
 
-Para Realizar la consulta ¿Qué municipios son los más pobres de cada estado y agregar otras variables de interés?--
+Para Realizar la consulta ¿Qué municipios son los más pobres de cada estado y agregar otras variables de interés?
 
 ```SQL
 with municipiopobrezaext as (
