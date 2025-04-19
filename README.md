@@ -1,4 +1,4 @@
-# Pobrezae_equipo03
+# Pobreza_equipo03
 El objetivo de esta repositorio es entender la forma en que se deben realizar las consultas espaciales y no espaciales haciendo uso del lenguaje SQL (Structured Query Language) para los datos de pobreza entrema en las entidades federativas de la república mexicana .  
 Vamos a explorar datos relacionados con porcentaje de población mayor al 30% con pobreza extrema municipal municipal .Con el objetivo de focalizar zonas prioritarias para la atención relacionándola con variables de importancia como son el rezago educativo, acceso a la seguridad social y carencia por acceso a la alimentación.
 Para comenzar se creó una una base de datos que se llame proyectofinal y no se creó un schema ya que se utilizará el schema public:
@@ -13,7 +13,7 @@ create extension postgis;
 Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema --
 
 Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?
-(importante seleccionar las columnas que quiero obtener y en from la tabla donde obtendré los datos puede ser del 2015 o del 2020).
+###(importante seleccionar las columnas que quiero obtener y en *from la tabla donde obtendré los datos puede ser del 2015 o del 2020).
 
 ## Consultas con los datos para el análisis de 2015 (Pobreza extrema)--
 
@@ -35,8 +35,9 @@ order by veces_apar desc;
 ```
 
 Para Realizar la consulta ¿Qué municipios son los más pobres de cada estado y agregar otras variables de interés?--
-with municipiopobrezaext as (
+
 ```SQL
+with municipiopobrezaext as (
 select entidad_fe,
 		nomgeo,
 		pobrezaext,
@@ -53,7 +54,7 @@ where rn = 1
 order by pobrezaext desc;
 ```
 
-Podemos realizar otras consultas como ¿De cada estado dame los 10 municipios más pobres?
+Podemos realizar otras consultas como ¿De cada estado quiero obtener los 10 municipios más pobres?
 ```SQL
 select entidad_fe, municipio, pobrezaext, rezagoedu_
 from public.pobreza_extrema_alta_2015 pa
