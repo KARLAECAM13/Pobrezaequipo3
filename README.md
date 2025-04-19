@@ -14,11 +14,11 @@ create extension postgis;
 --Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?--
 (importante seleccionar las columnas que quiero obtener y en from la tabla donde obtendré los datos puede ser del 2015 o del 2020).
 
-##Consultas con los datos para el análisis de 2015 (Pobreza extrema)--
+## Consultas con los datos para el análisis de 2015 (Pobreza extrema)--
 
 ```SQL
 --Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza en 2015?--
-(importante seleccionar las columnas que quiero obtener y en from la tabla donde obtendré los datos puede ser del 2015 o del 2020).
+(importante seleccionar las columnas que quiero obtener y en *from la tabla donde obtendré los datos puede ser del 2015 o del 2020).
 select nomgeo, pobrezaext, entidad_fe
 from public.pobreza_extrema_alta_2015 pa
 order by pobrezaext desc
