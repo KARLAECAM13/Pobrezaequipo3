@@ -1,6 +1,6 @@
 # Pobreza_equipo03
 El objetivo de esta repositorio es entender la forma en que se deben realizar las consultas espaciales y no espaciales haciendo uso del lenguaje SQL (Structured Query Language) para los datos de pobreza entrema en las entidades federativas de la república mexicana .  
-Vamos a explorar datos relacionados con porcentaje de población mayor al 30% con pobreza extrema municipal municipal .Con el objetivo de focalizar zonas prioritarias para la atención relacionándola con variables de importancia como son el rezago educativo, acceso a la seguridad social y carencia por acceso a la alimentación.
+Vamos a explorar datos relacionados con porcentaje de población mayor al 30% con pobreza extrema municipal municipal .Con el objetivo de focalizar zonas prioritarias para la atención relacionándola con variables de importancia como son el rezago educativo, acceso a la seguridad social y carencia por acceso a la alimentación. Los mapas interactivos puedes visitarlos en [MapasEquipo03](https://drive.google.com/drive/folders/1OB1ZVg60HA2GyrWp8SYETSWhnYRjEZWs)
 Para comenzar se creó una una base de datos que se llame proyectofinal y  un schema, permiten organizar los objetos de la base de datos, por ejemplo, las tablas en grupos lógicos para hacerlos más manejables, se ctiva la extensión PostGIS en la base de datos para habilitar soporte espacial como las geometrías , funciones espaciales, etc.:
 ```SQL
 -- CREAR LA BASE DE DATOS
