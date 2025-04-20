@@ -258,7 +258,7 @@ ORDER BY
 limit 6;
 ```
 Se harán las consultas con los otros estados con mayor persistencia.
-**al sustituir el estado en la consulta *where* entidad_federativa = 'Chiapas' cambiar el estado del cual se desen ver los resultados**.
+**al sustituir el nombre del estado en la consulta *where* entidad_federativa = 'Chiapas' se obtienen los resultados correspondientes de ese estado**.
 --Chiapas
 --Veracruz de Ignacio de la Llave
 --Guerrero
