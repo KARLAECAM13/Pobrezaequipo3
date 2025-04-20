@@ -257,7 +257,8 @@ ORDER BY
    "pobrezaext_%2015" desc
 limit 6;
 ```
-Se harán las consultas con los otros estados con mayor persistencia **al sustituir el estado en la consulta *where* entidad_federativa = 'Chiapas' cambiar el estado del cual se desen ver los resultados**.
+Se harán las consultas con los otros estados con mayor persistencia.
+**al sustituir el estado en la consulta *where* entidad_federativa = 'Chiapas' cambiar el estado del cual se desen ver los resultados**.
 --Chiapas
 --Veracruz de Ignacio de la Llave
 --Guerrero
