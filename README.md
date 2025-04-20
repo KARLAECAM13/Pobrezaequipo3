@@ -215,7 +215,72 @@ WHERE c.cvegeo = p.cvegeo;
 ```
 
 ## Consultas con los datos para el análisis de Pobreza extrema
+
 Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema 
+
+Para la identificación de persistencia en pobreza extrema a nivel estatal.
+Esta consulta calcula la cantidad de municipios por entidad federativa que registraron pobreza extrema mayor o igual al 30% tanto en 2015 como en 2020.
+Se considera que un municipio presenta persistencia si cumple esa condición en ambos años.
+El resultado se ordena de forma descendente y se limita a las seis entidades con más municipios persistentes.
+
+```SQL
+SELECT
+   entidad_federativa,
+   COUNT(*) AS municipios_persistentes
+FROM
+   public.concentrado_indpob2015_2020_mun2
+WHERE
+    "pobrezaext_%2015">= 30 AND "pobrezaext_%2020" >= 30
+GROUP BY
+   entidad_federativa
+ORDER BY
+   municipios_persistentes desc
+limit 6;
+```
+ Para la visualización de municipios persistentes en el estado de Oaxaca (que tuvo el mayor número de municipios)
+Esta consulta muestra los nombres de los municipios de Oaxaca que presentan pobreza extrema mayor o igual al 30% en ambos años (2015 y 2020).
+Se incluyen también los valores porcentuales registrados en cada año. Los resultados se ordenan por los valores de 2015 en orden descendente
+y se limita la salida a los seis municipios con mayor pobreza extrema en ese año. "Oaxaca"
+
+```SQL
+SELECT
+   entidad_federativa,
+   municipio,
+   "pobrezaext_%2015",
+   "pobrezaext_%2020"
+FROM
+   public.concentrado_indpob2015_2020_mun2
+WHERE
+   entidad_federativa = 'Oaxaca'
+   AND "pobrezaext_%2015" >= 30
+   AND "pobrezaext_%2020" >= 30
+ORDER BY
+   "pobrezaext_%2015" desc
+limit 6;
+```
+Se harán las consultas con los otros estados con mayor persistencia **al sustituir el estado en la consulta *where* entidad_federativa = 'Chiapas' cambiar el estado del cual se desen ver los resultados**.
+--Chiapas
+--Veracruz de Ignacio de la Llave
+--Guerrero
+--Puebla
+--Yucatán
+-- "Chiapas"
+```SQL
+SELECT
+   entidad_federativa,
+   municipio,
+   "pobrezaext_%2015",
+   "pobrezaext_%2020"
+FROM
+   public.concentrado_indpob2015_2020_mun2
+WHERE
+   entidad_federativa = 'Chiapas'
+   AND "pobrezaext_%2015" >= 30
+   AND "pobrezaext_%2020" >= 30
+ORDER BY
+   "pobrezaext_%2015" desc
+limit 6;
+```
 
 Para realizar la consulta ¿Cuáles son los municipios que tienen más pobreza extrema del 2015 y 2020?.
 **importante seleccionar las columnas que quiero obtener en *select* y
