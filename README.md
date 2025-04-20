@@ -216,11 +216,14 @@ WHERE c.cvegeo = p.cvegeo;
 
 ## Consultas con los datos para el análisis de Pobreza extrema
 
-Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema 
+Consultas con los datos para el análisis de Municipios con  30% o más de población con pobreza extrema. 
 
 Para la identificación de persistencia en pobreza extrema a nivel estatal.
+
 Esta consulta calcula la cantidad de municipios por entidad federativa que registraron pobreza extrema mayor o igual al 30% tanto en 2015 como en 2020.
+
 Se considera que un municipio presenta persistencia si cumple esa condición en ambos años.
+
 El resultado se ordena de forma descendente y se limita a las seis entidades con más municipios persistentes.
 
 ```SQL
