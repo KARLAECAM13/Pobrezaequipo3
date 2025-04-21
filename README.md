@@ -1,7 +1,7 @@
 # Pobreza_equipo03
 El objetivo de esta repositorio es entender la forma en que se deben realizar las consultas espaciales y no espaciales haciendo uso del lenguaje SQL (Structured Query Language) para los datos de pobreza entrema en las entidades federativas de la república mexicana .  
 
-Vamos a explorar datos relacionados con porcentaje de población mayor al 30% con pobreza extrema municipal.Con el objetivo de focalizar zonas prioritarias para la atención en relación  con variables de importancia como son; el rezago educativo, acceso a la seguridad social y carencia por acceso a la alimentación. Los mapas interactivos puedes visitarlos en [MapasEquipo03](https://drive.google.com/drive/folders/1OB1ZVg60HA2GyrWp8SYETSWhnYRjEZWs).
+Vamos a explorar datos relacionados con porcentaje de población mayor al 30% con pobreza extrema municipal.Con el objetivo de focalizar zonas prioritarias para la atención en relación  con variables de importancia como son; el rezago educativo, acceso a la seguridad social y carencia por acceso a la alimentación. Los mapas interactivos puedes visitarlos en [MapasEquipo03](https://drive.google.com/drive/folders/1OB1ZVg60HA2GyrWp8SYETSWhnYRjEZWs). El informe escrito de este proyecto está disponible en: [InformeEscritoEquipo03](https://drive.google.com/file/d/1-tJot77KECYPEWap25LsI7T5LQzOZU8o/view?usp=drive_link). 
 
 Para comenzar se creó una una base de datos que se llame proyectofinal y  un schema, permiten organizar los objetos de la base de datos, por ejemplo, las tablas en grupos lógicos para hacerlos más manejables, se ctiva la extensión PostGIS en la base de datos para habilitar soporte espacial como las geometrías , funciones espaciales, etc.:
 ```SQL
@@ -16,7 +16,7 @@ create schema proyectofinal;
 ## Preparando los datos 
 Cuando se trabaja con datos tanto espaciales como no espaciales es necesario que los datos cumplan con tres condiciones importantes: contar como llaves primarias y secundarias, tener índices espaciales y definir la proyección espacial idonea para trabajar con ellos.
 
-Los datos de población y los polígonos de las manzanas se encuentran separados, es por eso que vamos a realizar una unión.
+Los datos de población y los polígonos de las manzanas se encuentran separados, es por eso se realiza una unión.
 Se cambia el nombre de la columna"clave de municipio" a "cvegeo" para estandarizarla y facilitar los JOINs
 ```SQL
 ALTER TABLE "Concentrado_indicadores_de_pobreza_2015-2020_Filtrado"
